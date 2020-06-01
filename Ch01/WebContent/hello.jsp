@@ -8,7 +8,8 @@
 <body>
 	<h1>Hello JSP!!!</h1>
 	<%
-		String hello = "hello";
+		String hello = "hello~ JSP!!!";
 	%>
+	<h3><%= hello %></h3>
 </body>
 </html>
