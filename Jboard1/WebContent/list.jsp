@@ -136,7 +136,7 @@
                 <a href="/Jboard1/list.jsp?pg=<%= groupStart - 1 %>" class="prev">이전</a>
                 <% } %>
                 <% for(int i=groupStart; i<=groupEnd; i++){ %>
-                <a href="/Jboard1/list.jsp?pg=<%= i %>" class="num"><%= i %></a>                
+                <a href="/Jboard1/list.jsp?pg=<%= i %>" class="num <%= (currentPg == i) ? "current":"" %>"><%= i %></a>                
                 <% } %>              
                 <% if(groupEnd < lastPage){ %>
                 <a href="/Jboard1/list.jsp?pg=<%= groupEnd + 1 %>" class="next">다음</a>
