@@ -11,7 +11,10 @@ public class SQL {
 	public final static String SELECT_TOTAL_COUNT ="SELECT COUNT(`seq`) FROM `JBOARD_ARTICLE` "
 													+ "WHERE `parent`=0";
 	
-	public final static String DELETE_ARTICLE = "DELETE FROM `JBOARD_ARTICLE` WHERE `seq`=?";
+	public final static String UPDATE_ARTICLE ="UPDATE `JBOARD_ARTICLE` SET `title`=?, `content`=? "
+												+ "WHERE `seq`=?";
+	
+	public final static String DELETE_ARTICLE = "DELETE FROM `JBOARD_ARTICLE` WHERE `seq`=? OR `parent`=?";
 	
 	public final static String UPDATE_HIT = "UPDATE `JBOARD_ARTICLE` SET `hit`=`hit`+1 WHERE `seq`=?";
 	
@@ -32,6 +35,12 @@ public class SQL {
 												+ "`regip`=?, "
 												+ "`rdate`=NOW()";
 		   
+	public final static String SELECT_COMMENTS = "SELECT a.*, b.nick FROM `JBOARD_ARTICLE` AS a "
+												+ "JOIN `JBOARD_MEMBER` AS b "
+												+ "ON a.uid = b.uid "
+												+ "WHERE `parent`=? "
+												+ "ORDER BY `seq` ASC";
+	
 	public final static String INSERT_COMMENT = "INSERT INTO `JBOARD_ARTICLE` SET "
 												+ "`parent`=?, "
 												+ "`content`=?, "
@@ -39,7 +48,11 @@ public class SQL {
 												+ "`regip`=?, "
 												+ "`rdate`=NOW()";
 	
-	public final static String UPDATE_COMMENT_COUNT = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` + 1 "
+	public final static String DELETE_COMMENT = "DELETE FROM `JBOARD_ARTICLE` WHERE `seq`=?";
+	
+	public final static String UPDATE_COMMENT_DC = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` - 1 "
 													+ "WHERE `seq`=?";
 	
+	public final static String UPDATE_COMMENT_COUNT = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` + 1 "
+													+ "WHERE `seq`=?";	
 }
