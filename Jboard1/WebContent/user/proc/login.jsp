@@ -1,3 +1,5 @@
+<%@page import="kr.co.jboard1.config.SQL"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="kr.co.jboard1.config.DBConfig"%>
 <%@page import="kr.co.jboard1.bean.MemberBean"%>
 <%@page import="java.sql.ResultSet"%>
@@ -15,13 +17,18 @@
 	Connection conn = DBConfig.getConnection();
 	
 	// 3단계
-	Statement stmt = conn.createStatement();
+//	Statement stmt = conn.createStatement();
+	PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_LOGIN);
+	psmt.setString(1, uid);
+	psmt.setString(2, pass);
+	
 	
 	// 4단계
-	String sql  = "SELECT * FROM `JBOARD_MEMBER` ";
-	       sql += "WHERE `uid`='"+uid+"' AND `pass`=PASSWORD('"+pass+"')";
+//	String sql  = "SELECT * FROM `JBOARD_MEMBER` ";
+//	       sql += "WHERE `uid`='"+uid+"' AND `pass`=PASSWORD('"+pass+"')";
 	
-	ResultSet rs = stmt.executeQuery(sql);
+//	ResultSet rs = stmt.executeQuery(sql);
+	ResultSet rs = psmt.executeQuery();
 	       
 	// 5단계
 	if(rs.next()){
@@ -53,6 +60,7 @@
 	
 	// 6단계
 	rs.close();
-	stmt.close();
+//	stmt.close();
+	psmt.close();
 	conn.close();	
 %>
