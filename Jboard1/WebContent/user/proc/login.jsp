@@ -17,18 +17,13 @@
 	Connection conn = DBConfig.getConnection();
 	
 	// 3단계
-//	Statement stmt = conn.createStatement();
-	PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_LOGIN);
-	psmt.setString(1, uid);
-	psmt.setString(2, pass);
-	
+	Statement stmt = conn.createStatement();
 	
 	// 4단계
-//	String sql  = "SELECT * FROM `JBOARD_MEMBER` ";
-//	       sql += "WHERE `uid`='"+uid+"' AND `pass`=PASSWORD('"+pass+"')";
+	String sql  = "SELECT * FROM `JBOARD_MEMBER` ";
+	       sql += "WHERE `uid`='"+uid+"' AND `pass`=PASSWORD('"+pass+"')";
 	
-//	ResultSet rs = stmt.executeQuery(sql);
-	ResultSet rs = psmt.executeQuery();
+	ResultSet rs = stmt.executeQuery(sql);
 	       
 	// 5단계
 	if(rs.next()){
@@ -60,7 +55,6 @@
 	
 	// 6단계
 	rs.close();
-//	stmt.close();
-	psmt.close();
+	stmt.close();
 	conn.close();	
 %>
