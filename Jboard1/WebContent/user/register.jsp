@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <title>회원가입</title>
     <link rel="stylesheet" href="/Jboard1/css/style.css"/>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/Jboard1/js/checkUid.js"></script>
+    <script src="/Jboard1/js/checkPassword.js"></script>
+    <script src="/Jboard1/js/checkName.js"></script>
+    <script src="/Jboard1/js/checkNick.js"></script>
+    <script src="/Jboard1/js/checkEmail.js"></script>
+    <script src="/Jboard1/js/checkHp.js"></script>
+    <script src="/Jboard1/js/validation.js"></script>
+    <script>
+    
+    </script>
 </head>
 <body>
     <div id="wrapper">
@@ -15,7 +28,7 @@
                     <tr>
                         <td>아이디</td>
                         <td>
-                            <input type="text" name="uid" placeholder="아이디 입력"/>
+                            <input type="text" name="uid" placeholder="아이디 입력" required="required"/>
                             <span class="resultId"></span>
                         </td>
                     </tr>
@@ -53,12 +66,14 @@
                         <td>E-Mail</td>
                         <td>
                             <input type="email" name="email" placeholder="이메일 입력"/>
+                            <span class="resultEmail"></span> 
                         </td>
                     </tr>
                     <tr>
                         <td>휴대폰</td>
                         <td>
                             <input type="text" name="hp" placeholder="- 포함 13자리 입력" minlength="13" maxlength="13" />
+                            <span class="resultHp"></span> 
                         </td>
                     </tr>
                     <tr>
@@ -79,7 +94,7 @@
                 </table>
 
                 <div>
-                    <a href="./login.html" class="btnCancel">취소</a>
+                    <a href="/Jboard1/user/login.jsp" class="btnCancel">취소</a>
                     <input type="submit"   class="btnJoin" value="회원가입"/>
                 </div>
 

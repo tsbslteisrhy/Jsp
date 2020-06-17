@@ -3,7 +3,32 @@ package kr.co.jboard1.config;
 public class SQL {
 
 	// 회원 관련
+	public final static String SELECT_MEMBER = "SELECT * FROM `JBOARD_MEMBER` "
+											+ "WHERE `uid`=? AND `pass`=PASSWORD(?)";
+	
+	public final static String INSERT_MEMBER = "INSERT INTO `JBOARD_MEMBER` SET "
+												+ "`uid`=?, "
+												+ "`pass`=PASSWORD(?), "
+												+ "`name`=?, "
+												+ "`nick`=?, "
+												+ "`email`=?, "
+												+ "`hp`=?, "
+												+ "`zip`=?, "
+												+ "`addr1`=?, "
+												+ "`addr2`=?, "
+												+ "`regip`=?, "
+												+ "`rdate`=NOW()";
+	
+	public final static String SELECT_TERMS = "SELECT * FROM `JBOARD_TERMS`";
+	
+	public final static String SELECT_CHECK_UID = "SELECT COUNT(`uid`) FROM `JBOARD_MEMBER` WHERE `uid`=?";
+	
+	public final static String SELECT_CHECK_NICK = "SELECT COUNT(`nick`) FROM `JBOARD_MEMBER` WHERE `nick`=?";
 
+	public final static String SELECT_CHECK_EMAIL = "SELECT COUNT(`email`) FROM `JBOARD_MEMBER` WHERE `email`=?";
+
+	public final static String SELECT_CHECK_HP = "SELECT COUNT(`hp`) FROM `JBOARD_MEMBER` WHERE `hp`=?";
+	
 	
 	// 게시물 관련
 	public final static String SELECT_TOTAL_COUNT ="SELECT COUNT(`seq`) FROM `JBOARD_ARTICLE` "

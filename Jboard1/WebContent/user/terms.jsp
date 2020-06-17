@@ -1,3 +1,5 @@
+<%@page import="kr.co.jboard1.config.SQL"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="kr.co.jboard1.config.DBConfig"%>
 <%@page import="kr.co.jboard1.bean.TermsBean"%>
 <%@page import="java.sql.ResultSet"%>
@@ -9,11 +11,10 @@
 	Connection conn = DBConfig.getConnection();
 	
 	// 3단계
-	Statement stmt = conn.createStatement();
+	PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_TERMS);
 	
 	// 4단계
-	String sql = "SELECT * FROM `JBOARD_TERMS`";
-	ResultSet rs = stmt.executeQuery(sql);
+	ResultSet rs = psmt.executeQuery();
 	
 	// 5단계
 	TermsBean tb = new TermsBean();
@@ -25,7 +26,7 @@
 	
 	// 6단계
 	rs.close();
-	stmt.close();
+	psmt.close();
 	conn.close();	
 %>
 <!DOCTYPE html>
