@@ -12,7 +12,7 @@
                 <li><a href="/Farmstory1/community/menu.jsp">오늘의식단</a></li>
                 <li class="on"><a href="/Farmstory1/community/chef.jsp">나도요리사</a></li>
                 <li><a href="/Farmstory1/community/qna.jsp">고객문의</a></li>
-                <li><a href="/Farmstory1/community/fnq.jsp">자주묻는질문</a></li>
+                <li><a href="/Farmstory1/community/faq.jsp">자주묻는질문</a></li>
             </ul>
         </aside>
         <article>
