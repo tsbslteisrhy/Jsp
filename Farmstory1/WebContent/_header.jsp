@@ -3,6 +3,9 @@
 <%
 	// 로그인여부 세션체크
 	MemberBean mb = (MemberBean) session.getAttribute("member");
+	
+	request.setCharacterEncoding("utf-8");
+	String code  = request.getParameter("code");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +16,13 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+    	var code = '<%= code %>';
+    	if(code == '101'){
+    		alert('로그인을 먼저 하셔야 합니다.');
+    		location.href = '/Farmstory1/user/login.jsp';
+    	}
+    </script>
 </head>
 <body>
     <div id="wrapper">
