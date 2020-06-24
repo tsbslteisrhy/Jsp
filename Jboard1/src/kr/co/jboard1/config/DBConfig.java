@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class DBConfig {
 
 	// DB정보 - 배포용
-	//public static final String HOST = "jdbc:mysql://chhak.kr:3306/chhak";
-	//public static final String USER = "chhak";
-	//public static final String PASS = "qlfanfkela10121";
+//	public static final String HOST = "jdbc:mysql://yhzin.com:3306/rhj?useUnicode=true&characterEncoding=utf8";
+//	public static final String USER = "root";
+//	public static final String PASS = "0203hj";
 	
 	// DB정보 - 개발용
 	public static final String HOST = "jdbc:mysql://192.168.44.46:3306/rhj";

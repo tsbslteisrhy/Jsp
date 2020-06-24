@@ -15,19 +15,19 @@
 	Connection conn = DBConfig.getConnection();
 	
 	// 3단계
-	PreparedStatement psmtDC = conn.prepareStatement(SQL.UPDATE_COMMENT_DC);
-	psmtDC.setString(1, parent);
+	PreparedStatement psmtRC = conn.prepareStatement(SQL.UPDATE_RECOUNT_COMMENT);
+	psmtRC.setString(1, parent);
 		
 	PreparedStatement psmt = conn.prepareStatement(SQL.DELETE_COMMENT);
 	psmt.setString(1, seq);
 		
 	// 4단계
-	psmtDC.executeUpdate(); // parent -1
+	psmtRC.executeUpdate(); // parent -1
 	psmt.executeUpdate(); // comment 삭제
 	
 	// 5단계
 	// 6단계
-	psmtDC.close();
+	psmtRC.close();
 	psmt.close();
 	conn.close();
 	
