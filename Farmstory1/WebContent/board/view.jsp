@@ -19,7 +19,7 @@
 	String asideFile = "./_aside_"+group+".jsp";
 	
 	if(mb == null){		
-		response.sendRedirect("./list.jsp?group="+group+"&cate="+cate);
+		response.sendRedirect("./list.jsp?code=101&group="+group+"&cate="+cate);
 		return;
 	}
 
@@ -135,7 +135,7 @@
         <tr>
             <td>내용</td>
             <td>
-                <textarea name="content" readonly><%= article.getContent() %></textarea>
+                <textarea id="summernote" name="content" readonly><%= article.getContent() %></textarea>
             </td>
         </tr>
     </table>
@@ -206,4 +206,17 @@
     </section>
 </div>
 
+<script>
+	$('#summernote').summernote({
+	    tabsize: 2,
+	    height: 500,
+	  });
+	
+	$(document).ready(function() {
+	  $('#summernote').summernote({
+		  airMode: true,
+		  focus: false
+	  });
+	});
+</script>
 <%@ include file ="../_footer.jsp" %>

@@ -29,7 +29,7 @@
                 <tr>
                     <td>내용</td>
                     <td>
-                        <textarea name="content" ><%= article.getContent() %></textarea>                                
+                        <textarea id="summernote" name="content" ><%= article.getContent() %></textarea>                                
                     </td>
                 </tr>
                 <tr>
@@ -51,5 +51,15 @@
         </article>
     </section>
 </div>
+
+<script>
+	$('#summernote').summernote({
+	    tabsize: 2,
+	    height: 500,
+	  });
+	$(document).ready(function() {
+	  $('#summernote').summernote();
+	});
+</script>
 
 <%@ include file ="../_footer.jsp" %>

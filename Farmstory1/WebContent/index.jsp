@@ -1,5 +1,42 @@
+<%@page import="java.sql.Statement"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="kr.co.farmstory1.bean.ArticleBean"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="kr.co.farmstory1.config.SQL"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="kr.co.farmstory1.config.DBConfig"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp" %>
+<% 
+	// 1, 2단계
+	Connection conn = DBConfig.getConnection();
+	
+	// 3단계
+	Statement stmt = conn.createStatement();
+		
+	// 4단계
+	ResultSet rs = stmt.executeQuery(SQL.SELECT_LATEST_ARTICLE);	
+	
+	// 5단계
+	List<ArticleBean> latestList = new ArrayList<>();
+	
+	while(rs.next()){
+		ArticleBean article = new ArticleBean();
+		article.setSeq(rs.getInt(1));
+		article.setTitle(rs.getString(2));
+		article.setRdate(rs.getString(3).substring(2, 10));
+		
+		latestList.add(article);
+	}
+	
+	// 6단계
+	rs.close();
+	stmt.close();
+	conn.close();
+
+%>
 <main>
     <div class="slider">
         <img src="./img/main_slide_img_tit.png" alt="사람과 자연을 사랑하는 팜스토리"/>
@@ -24,93 +61,48 @@
             <img src="./img/main_latest1_tit.png" alt="텃밭가꾸기"/>
             <img src="./img/main_latest1_img.jpg" alt="이미지1"/>
             <table border="0">
+            	<% 
+            		for(int i=0; i<5; i++){
+            			ArticleBean article = latestList.get(i);
+            	%>
                 <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
+                    <td></td>
+                    <td><a href="/Farmstory1/board/view.jsp?seq=<%= article.getSeq() %>&group=croptalk&cate=grow"><%= article.getTitle() %></td>
+                    <td><%= article.getRdate() %></td>
                 </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
+                <% } %>
             </table>
         </div>
         <div>
             <img src="./img/main_latest2_tit.png" alt="귀농학교"/>
             <img src="./img/main_latest2_img.jpg" alt="이미지2"/>
             <table border="0">
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
+                <% 
+            		for(int i=5; i<10; i++){
+            			ArticleBean article = latestList.get(i);
+            	%>
+            	<tr>
+                    <td></td>
+                    <td><a href="/Farmstory1/board/view.jsp?seq=<%= article.getSeq() %>&group=croptalk&cate=school"><%= article.getTitle() %></td>
+                    <td><%= article.getRdate() %></td>
                 </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
+                <% } %>
             </table>
         </div>
         <div>
             <img src="./img/main_latest3_tit.png" alt="농작물이야기"/>
             <img src="./img/main_latest3_img.jpg" alt="이미지3"/>
             <table border="0">
+                <% 
+            		for(int i=10; i<15; i++){
+            			ArticleBean article = latestList.get(i);
+            	%>
                 <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
+                    <td></td>
+                    <td><a href="/Farmstory1/board/view.jsp?seq=<%= article.getSeq() %>&group=croptalk&cate=croptalk"><%= article.getTitle() %></td>
+                    <td><%= article.getRdate() %></td>
                 </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
+                <% } %>
             </table>
         </div>
     </div>
