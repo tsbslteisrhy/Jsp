@@ -38,6 +38,7 @@ public class ListService implements CommonService{
 			
 			// 3단계
 			stmt = conn.createStatement();
+			
 			// 4단계
 			ResultSet rs = stmt.executeQuery("SELECT * FROM `MEMBER`");
 			
