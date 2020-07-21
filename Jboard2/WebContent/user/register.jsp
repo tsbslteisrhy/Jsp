@@ -12,43 +12,53 @@
   	<script src="/Jboard2/js/checkUid.js"></script>
   	<script src="/Jboard2/js/checkPass.js"></script>
 	<script>
-	
 		// 유효성(validation) 검증
-		$('.register > form').submit(function(){
-			
-			// 아이디 중복여부 확인
-			if(!isUidOk){
-				alert('아이디 다시 확인 하십시오.');
-				return false;
-			}
-			// 비밀번호 일치여부 확인
-			if(!isPassOk){
-				alert('비밀번호 다시 확인 하십시오.');
-				return false;
-			}
-			// 이름 한글여부 확인(정규식)
-			if(false){
-				alert('이름 다시 확인 하십시오.');
-				return false;
-			}
-			// 별명 중복여부 확인
-			if(false){
-				alert('별명 다시 확인 하십시오.');
-				return false;
-			}
-			// 이메일 중복여부 확인
-			if(false){
-				alert('이메일 다시 확인 하십시오.');
-				return false;
-			}
-			// 휴대폰 중복여부 확인
-			if(false){
-				alert('휴대폰 다시 확인 하십시오.');
-				return false;
-			}
-						
-			// 최종 데이터 확인 완료
-			return true;
+		$(function(){
+			$('.register > form').submit(function(){
+				
+				alert('유효성 시작');
+				
+				// 아이디 중복여부 확인
+				if(!isUidOk){
+					alert('아이디 다시 확인 하십시오.');
+					return false;
+				}
+				
+				// 비밀번호 일치여부 확인
+				if(!isPassOk){
+					alert('비밀번호 다시 확인 하십시오.');
+					return false;
+				}
+				
+				// 이름 한글여부 확인(정규식)
+				if(false){
+					alert('이름 다시 확인 하십시오.');
+					return false;
+				}
+				
+				// 별명 중복여부 확인
+				if(false){
+					alert('별명 다시 확인 하십시오.');
+					return false;
+				}
+				
+				// 이메일 중복여부 확인
+				if(false){
+					alert('이메일 다시 확인 하십시오.');
+					return false;
+				}
+				
+				// 휴대폰 중복여부 확인
+				if(false){
+					alert('휴대폰 다시 확인 하십시오.');
+					return false;
+				}
+				
+				alert('유효성 끝');
+				
+				// 최종 데이터 확인 완료
+				return true;
+			});
 		});
 	</script>
 </head>
