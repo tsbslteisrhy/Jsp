@@ -39,6 +39,37 @@
                 <a href="/Jboard2/list.do" class="btnList">목록</a>
             </div>  
             
+            <script>
+            	
+            	$(function(){
+            		var btnDel = $('.commentList > article > div > a:first-child');
+            		
+            		btnDel.click(function(e){
+            			e.preventDefault();
+            			
+            			var tag = $(this);
+            			var href = tag.attr('href');
+            			
+            			$.ajax({
+            				url: href,
+            				type: 'get',
+            				dataType: 'json',
+            				success: function(data){
+            					
+            					if(data.result == 1){
+            						alert("댓글 삭제 완료");
+            						
+            						// 댓글 삭제 후 현재 뷰에 출력되어 있는 댓글 삭제
+            						tag.parent().parent().remove();
+            					}            					
+            				}            				
+            			});
+            			
+            		});// btnDel click 이벤트 끝
+            	});
+            
+            </script>
+            
             <!-- 댓글리스트 -->
             <section class="commentList">
                 <h3>댓글목록</h3>
@@ -50,7 +81,7 @@
 	                    </span>
 	                    <textarea name="comment" readonly>${comment.content}</textarea>
 	                    <div>
-	                        <a href="#">삭제</a>
+	                        <a href="/Jboard2/deleteComment.do?seq=${comment.seq}&parent=${comment.parent}">삭제</a>
 	                        <a href="#">수정</a>
 	                    </div>
 	                </article>
@@ -116,8 +147,8 @@
 										+ "</span>"
 										+ "<textarea name='comment' readonly></textarea>"
 										+ "<div>"
-											+ "<a href='#'>삭제</a>'"
-											+ "<a href='#'>수정</a>'"
+											+ "<a href='#'>삭제 </a>"
+											+ "<a href='#'>수정</a>"
 										+ "</div>"
 								 	+ "</article>";
 								 	
