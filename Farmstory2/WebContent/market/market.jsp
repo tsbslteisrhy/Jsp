@@ -1,23 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file ="../_header.jsp" %>
 
-<div id="sub" class="introduction">
+<div id="sub" class="market">
     <div>
-        <img src="../img/sub_top_tit1.png" alt="INTRODUCTION"/>
+        <img src="../img/sub_top_tit2.png" alt="MARKET"/>
     </div>
     <section>
         <aside>
-            <img src="../img/sub_aside_cate1_tit.png" alt="팜스토리 소개"/>
+            <img src="../img/sub_aside_cate2_tit.png" alt="장보기"/>
             <ul>
-                <li class="on"><a href="/Farmstory2/introduction/greeting.do">인사말</a></li>
-                <li><a href="/Farmstory2/introduction/direction.do">찾아오시는길</a></li>
+                <li class="on"><a href="/Farmstory2/market/market">장보기</a></li>
             </ul>
         </aside>
         <article>
             <nav>
-                <img src="../img/sub_nav_tit_cate1_tit1.png" alt="인사말"/>
+                <img src="../img/sub_nav_tit_cate2_tit1.png" alt="장보기"/>
                 <p>
-                    HOME > 팜스토리소개 > <span>인사말</span>
+                    HOME > 장보기 > <span>장보기</span>
                 </p>
             </nav>
             <div class="content">
