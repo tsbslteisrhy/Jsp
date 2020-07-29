@@ -12,7 +12,7 @@
         </aside>
         <article>
             <nav>
-                <img src="../img/sub_nav_tit_cate4_tit1.png" alt="이벤트"/>
+                <img src="../img/sub_nav_tit_cate4_tit_${cate}.png" alt="이벤트"/>
                 <p>
                     HOME > 이벤트 > <span>이벤트</span>
                 </p>

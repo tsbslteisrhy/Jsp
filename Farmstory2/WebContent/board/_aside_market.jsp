@@ -12,7 +12,7 @@
         </aside>
         <article>
             <nav>
-                <img src="../img/sub_nav_tit_cate2_tit1.png" alt="장보기"/>
+                <img src="../img/sub_nav_tit_cate2_tit_${cate}.png" alt="장보기"/>
                 <p>
                     HOME > 장보기 > <span>장보기</span>
                 </p>

@@ -17,7 +17,7 @@
         </aside>
         <article>
             <nav>
-                <img src="../img/sub_nav_tit_cate5_tit_${cate}.png" alt="이벤트"/>
+                <img src="../img/sub_nav_tit_cate5_tit_${cate}.png" alt="커뮤니티"/>
                 <p>
                     HOME > 커뮤니티 > 
                     <c:if test="${cate=='notice'}"><span>공지사항</span></c:if>

@@ -6,6 +6,7 @@
     <h3>글쓰기</h3>
     <article>
         <form action="/Farmstory2/board/write.do" method="post">
+        	<input type="hidden" name="group" value="${group}" />
         	<input type="hidden" name="cate" value="${cate}" />
         	<input type="hidden" name="uid" value="${member.uid}" />
             <table>

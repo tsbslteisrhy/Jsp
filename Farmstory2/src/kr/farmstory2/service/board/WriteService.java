@@ -14,6 +14,7 @@ public class WriteService implements CommonService {
 		
 		if(req.getMethod().equals("POST")) {
 			
+			String group   = req.getParameter("group");
 			String cate    = req.getParameter("cate");
 			String uid     = req.getParameter("uid");
 			String title   = req.getParameter("title");
@@ -34,7 +35,7 @@ public class WriteService implements CommonService {
 			BoardDAO dao = BoardDAO.getInstance();
 			dao.insertArticle(vo);
 			
-			return "redirect:/Farmstory2/board/list.do";
+			return "redirect:/Farmstory2/board/list.do?group="+group+"&cate="+cate;
 			
 		}else {
 			
