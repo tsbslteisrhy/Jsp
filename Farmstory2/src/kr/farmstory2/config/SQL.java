@@ -91,6 +91,8 @@ public class SQL {
 												+ "`regip`=?, "
 												+ "`rdate`=NOW()";
 	
+	public final static String UPDATE_COMMENT = "UPDATE `JBOARD_ARTICLE` SET `content`=? WHERE `seq`=?";
+	
 	public final static String DELETE_COMMENT = "DELETE FROM `JBOARD_ARTICLE` WHERE `seq`=?";
 	
 	public final static String UPDATE_RECOUNT_COMMENT = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` - 1 "

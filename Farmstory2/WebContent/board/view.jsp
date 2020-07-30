@@ -49,7 +49,7 @@
      			// textarea 비활성화
      			var textarea = $(this).parent().prev();
      			textarea.attr('readonly', true);
-     			textarea.val(currenComment);
+     			textarea.val(currentComment);
      			
      			// 삭제 노출 ,수정완료 숨김, 취소 메뉴 숨김
      			var parent = $(this).parent();
@@ -79,6 +79,38 @@
      			parent.children().eq(3).addClass('off');
      		});
      		
+   			// 수정완료 클릭
+   			btnComplete.click(function(e){
+   				e.preventDefault();
+   				
+   				var parent = $(this).parent();
+   				var content = $(this).parent().prev().val();
+   				var seq = $(this).parent().next().val();
+   				
+   				var jsonData = {
+   					'content': content,
+   					'seq': seq
+   				};
+   				
+   				$.post('/Farmstory2/board/commentModify.do', jsonData, function(result){
+   					
+   					var data = JSON.parse(result);
+   					
+   					if(data.result == 1){
+   						alert("수정완료");
+   						
+	   					// 삭제 노출 ,수정완료 숨김, 취소 메뉴 숨김
+		 	     		parent.children().eq(0).removeClass('off');
+		 	     		parent.children().eq(1).addClass('off');
+		 	     		parent.children().eq(2).addClass('off');
+		 	     		parent.children().eq(3).removeClass('off');
+		 	     		parent.prev().attr('readonly', true);
+   					}
+
+   				});
+   				
+   			});
+   			
      	});
     </script>
     
@@ -87,6 +119,7 @@
         <h3>댓글목록</h3>
         <c:forEach var="comment" items="${comments}">
 	         <article class="comment">
+	         	 
 	             <span>
 	                 <span>${comment.nick}</span>
 	                 <span>${comment.rdate}</span>
@@ -97,15 +130,15 @@
 	                 <a href="#" class="cancel off">취소</a>
 	                 <a href="#" class="complete off">수정완료</a>
 	                 <a href="#" class="modify">수정</a>
-	                 
 	             </div>
+	             <input type="hidden" name="seq" value="${comment.seq}" />
 	         </article>
          </c:forEach>
          
          <c:if test="${empty comments}">
              <p class="empty">등록된 댓글이 없습니다.</p>
          </c:if>
-         </section>
+    </section>
 
 	<script>
 		function getToday(){
